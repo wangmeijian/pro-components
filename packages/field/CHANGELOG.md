@@ -2,6 +2,31 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.29.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.28.7...@ant-design/pro-field@1.29.0) (2021-12-13)
+
+### Bug Fixes
+
+- **form:** relay no render DrawerForm and ModalForm ([#4254](https://github.com/ant-design/pro-components/issues/4254)) ([f986ecb](https://github.com/ant-design/pro-components/commit/f986ecb9d89d4e3edef18d50eee4c37e730227d9))
+
+### Features
+
+- **layout:** settingDrawer use new antd new function ([#4042](https://github.com/ant-design/pro-components/issues/4042)) ([8e907d8](https://github.com/ant-design/pro-components/commit/8e907d8bbe48848c37e8ce1d5a584880e181f250))
+
+## [1.28.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.28.6...@ant-design/pro-field@1.28.7) (2021-12-10)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+## [1.28.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.28.5...@ant-design/pro-field@1.28.6) (2021-12-10)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+## [1.28.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.28.4...@ant-design/pro-field@1.28.5) (2021-12-09)
+
+### Bug Fixes
+
+- **form:** cascader mode=text error ([#4213](https://github.com/ant-design/pro-components/issues/4213)) ([fdbd1d6](https://github.com/ant-design/pro-components/commit/fdbd1d62757bd9a3ad167290830a8fd050f66fc9))
+- **form:** fix InputNumberPopover null error ([#4238](https://github.com/ant-design/pro-components/issues/4238)) ([2f12d30](https://github.com/ant-design/pro-components/commit/2f12d306f440dc94ed2603ea9d45cd2e0731e8f7))
+
 ## [1.28.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.28.3...@ant-design/pro-field@1.28.4) (2021-12-08)
 
 **Note:** Version bump only for package @ant-design/pro-field

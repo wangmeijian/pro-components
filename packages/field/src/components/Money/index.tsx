@@ -74,7 +74,7 @@ const intlMap = {
 
 const getTextByLocale = (
   localeStr: string | false,
-  paramsText: number | string,
+  paramsText: number | string | undefined,
   precision: number,
   config?: any,
 ) => {
@@ -82,6 +82,8 @@ const getTextByLocale = (
   if (typeof moneyText === 'string') {
     moneyText = Number(moneyText);
   }
+
+  if (!moneyText && moneyText !== 0) return '';
 
   return new Intl.NumberFormat(localeStr || 'zh-Hans-CN', {
     ...(intlMap[localeStr || 'zh-Hans-CN'] || intlMap['zh-Hans-CN']),
@@ -115,9 +117,7 @@ const InputNumberPopover = React.forwardRef<
       visible={dom ? undefined : false}
       trigger="focus"
       content={dom}
-      getPopupContainer={(triggerNode) => {
-        return triggerNode?.parentElement || document.body;
-      }}
+      getPopupContainer={(triggerNode) => triggerNode?.parentElement || document.body}
     >
       <InputNumber ref={ref} {...rest} value={value} onChange={onChange} />
     </Popover>
@@ -188,7 +188,7 @@ const FieldMoney: ProFieldFC<FieldMoneyProps> = (
           const reg = new RegExp(`/B(?=(d{${3 + (precision - DefaultPrecisionCont)}})+(?!d))/g`);
           const localeText = getTextByLocale(
             moneySymbol ? locale : false,
-            props.value.toString().replace(reg, ','),
+            props.value?.toString()?.replace(reg, ','),
             precision,
             {
               ...numberFormatOptions,
@@ -208,19 +208,11 @@ const FieldMoney: ProFieldFC<FieldMoneyProps> = (
             const reg = new RegExp(`/B(?=(d{${3 + (precision - DefaultPrecisionCont)}})+(?!d))/g`);
             return `${moneySymbol} ${value}`.replace(reg, ',');
           }
-          if (value) {
-            return value;
-          }
-          return '';
+          return value;
         }}
         parser={(value) => {
-          if (moneySymbol && value) {
-            return value.replace(new RegExp(`\\${moneySymbol}\\s?|(,*)`, 'g'), '');
-          }
-          if (value) {
-            return value;
-          }
-          return '';
+          if (moneySymbol && value) value.replace(new RegExp(`\\${moneySymbol}\\s?|(,*)`, 'g'), '');
+          return value;
         }}
         placeholder={placeholder}
         {...fieldProps}
